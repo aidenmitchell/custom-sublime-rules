@@ -13,3 +13,4 @@ I don't have a lot of emails to work with, so testing these rules on larger data
 | Rule Name                                             | In Development  | In Production  | Comments  |
 |------------------------------------------------------ |------------ |----------------------------- |---------- |
 | Brand impersonation: M365 Mail Notifications | ✅ | | Needs to be tested on a larger dataset |
+| Brand impersonation: Canada Post | ✅ | | False positives unlikely |

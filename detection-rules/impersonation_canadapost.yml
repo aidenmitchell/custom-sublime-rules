@@ -1,0 +1,19 @@
+name: "Brand impersonation: Canada Post"
+description: |
+  Impersonation of the national mail carrier Canada Post.
+type: "rule"
+severity: "medium"
+authors:
+  - twitter: "amitchell516"
+source: |
+  type.inbound 
+  and (
+      ilike(body.html.inner_text, "*Canada Post*", "*Postes Canada*")
+      and (
+          ilike(sender.display_name, '*Canada Post*', '*shipping*', "*CA Post*")
+      )
+  )
+  and sender.email.domain.root_domain not in~ ('canadapost-postescanada.ca', "canadapost.ca")
+tags:
+  - "Brand impersonation"
+  - "Suspicious sender"
