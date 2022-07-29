@@ -1,0 +1,19 @@
+name: "Brand impersonation: M365 Mail Notifications"
+description: |
+  Impersonation of Microsoft 365 email notifications (bounce backs, mailbox full, etc.)
+type: "rule"
+severity: "medium"
+authors:
+  - twitter: "amitchell516"
+source: |
+  type.inbound 
+  and (
+      ilike(body.html.inner_text, "*MS*", "*Microsoft", "*Office*")
+      and (
+          ilike(sender.display_name, '*Mail Delivery System*', '*Mailbox*')
+      )
+  )
+  and sender.email.domain.root_domain not in~ ('onmicrosoft.com')
+tags:
+  - "Brand impersonation"
+  - "Suspicious sender"
