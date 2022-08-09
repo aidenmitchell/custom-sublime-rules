@@ -7,12 +7,13 @@ authors:
   - twitter: "amitchell516"
 source: |
   type.inbound
-  and ilike(body.html.inner_text, "*Canada Post*", "*Postes Canada*")
   and (
-      ilike(sender.display_name, '*Canada Post*', '*shipping*', "*CA Post*")
+    ilike(body.html.inner_text, "*Canada Post*", "*Postes Canada*")
+    or ilike(sender.display_name, '*Canada Post*', '*shipping*', "*CA Post*")
+    or ilike(sender.email.email, "*canada-post*", "*postes-canada*")
   )
-  or ilike(sender.email.email, "*canada-post*", "*postes-canada*")
   and sender.email.domain.root_domain not in~ ('canadapost-postescanada.ca', "canadapost.ca")
+  and sender.email.email not in $recipient_emails
 tags:
   - "Brand impersonation"
   - "Suspicious sender"
