@@ -6,8 +6,9 @@ severity: "medium"
 authors:
   - twitter: "amitchell516"
 source: |
-  type.inbound 
-  and (
+  type.inbound
+  and (ilike(sender.email.email, "*canada-post*", "*postes-canada*"))
+  or (
       ilike(body.html.inner_text, "*Canada Post*", "*Postes Canada*")
       and (
           ilike(sender.display_name, '*Canada Post*', '*shipping*', "*CA Post*")
