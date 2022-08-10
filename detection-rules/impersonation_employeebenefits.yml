@@ -10,7 +10,7 @@ source: |
   and (
       ilike(sender.display_name, "payroll", "human resources", "hr")
       and ilike(body.html.inner_text, "*coverage*", "*benefits*", "*enrollment*")
-  )
+      and any(body.links, ilike(.display_text, "*enrol*", "*update*") and .href_url.domain.root_domain != sender.email.domain.root_domain)) 
   // add your company domain(s) here to prevent legitimate HR emails from getting caught
   and sender.email.domain.root_domain != "example.com"
 tags:
