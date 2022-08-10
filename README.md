@@ -14,3 +14,4 @@ I don't have a lot of emails to work with, so testing these rules on larger data
 |------------------------------------------------------ |------------ |----------------------------- |---------- | ---------- |
 | Brand impersonation: M365 Mail Notifications | ✅ | | | Needs to be tested on a larger dataset; improve detection |
 | Brand impersonation: Canada Post | ✅ | | | False positives unlikely |
+| Impersonation: Employee Benefits Notification | ✅ | | | Needs to be tested on a larger dataset |

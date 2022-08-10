@@ -1,0 +1,17 @@
+name: "Impersonation: Employee Benefits Notification"
+description: |
+  Catches emails that attempt to get the user to enroll for employee benefits.
+type: "rule"
+severity: "medium"
+authors:
+  - twitter: "amitchell516"
+source: |
+  type.inbound
+  and (
+      ilike(sender.display_name, "payroll", "human resources", "hr")
+      and ilike(body.html.inner_text, "*coverage*", "*benefits*", "*enrollment*")
+  )
+  // add your company domain(s) here to prevent legitimate HR emails from getting caught
+  and sender.email.domain.root_domain != "example.com"
+tags:
+  - "Suspicious sender"
