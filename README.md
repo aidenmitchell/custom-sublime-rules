@@ -10,7 +10,7 @@ I don't have a lot of emails to work with, so testing these rules on larger data
 
 # Rule inventory
 
-| Rule Name                                             | In Development  | In Production  | Comments  |
-|------------------------------------------------------ |------------ |----------------------------- |---------- |
-| Brand impersonation: M365 Mail Notifications | ✅ | | Needs to be tested on a larger dataset; improve detection |
-| Brand impersonation: Canada Post | ✅ | | False positives unlikely |
+| Rule Name                                             | In Development  | In Production | Pushed to Sublime repo | Comments  |
+|------------------------------------------------------ |------------ |----------------------------- |---------- | ---------- |
+| Brand impersonation: M365 Mail Notifications | ✅ | | | Needs to be tested on a larger dataset; improve detection |
+| Brand impersonation: Canada Post | ✅ | | | False positives unlikely |
